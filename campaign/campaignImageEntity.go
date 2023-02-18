@@ -1,11 +1,11 @@
-package entity
+package campaign
 
 import (
 	"gorm.io/gorm"
 	"time"
 )
 
-type CampaignImages struct {
+type CampaignsImages struct {
 	ID         int       `json:"id" gorm:"AUTO_INCREMENT; primary_key;"`
 	CampaignID int       `json:"campaign_id"`
 	FileName   string    `json:"file_name"`
@@ -14,13 +14,13 @@ type CampaignImages struct {
 	UpdatedAt  time.Time `json:"updated_at" gorm:"column:updated_at"`
 }
 
-func (u *CampaignImages) BeforeCreate(tx *gorm.DB) (err error) {
+func (u *CampaignsImages) BeforeCreate(tx *gorm.DB) (err error) {
 	u.CreatedAt = time.Now()
 	u.UpdatedAt = time.Now()
 	return
 }
 
-func (u *CampaignImages) BeforeUpdate(tx *gorm.DB) (err error) {
+func (u *CampaignsImages) BeforeUpdate(tx *gorm.DB) (err error) {
 	u.UpdatedAt = time.Now()
 	return
 }

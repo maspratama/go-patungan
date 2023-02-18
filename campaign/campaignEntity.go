@@ -1,6 +1,7 @@
-package entity
+package campaign
 
 import (
+	"github.com/maspratama/go-patungan/user"
 	"gorm.io/gorm"
 	"time"
 )
@@ -18,8 +19,8 @@ type Campaigns struct {
 	Slug             string    `json:"slug"`
 	CreatedAt        time.Time `json:"created_at" gorm:"column:created_at"`
 	UpdatedAt        time.Time `json:"updated_at" gorm:"column:updated_at"`
-	CampaignImages   []CampaignImages
-	User             Users
+	CampaignImages   []CampaignsImages
+	User             user.Users
 }
 
 func (u *Campaigns) BeforeCreate(tx *gorm.DB) (err error) {

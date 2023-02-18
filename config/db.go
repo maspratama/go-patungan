@@ -3,7 +3,7 @@ package config
 import (
 	"fmt"
 	"github.com/joho/godotenv"
-	"github.com/maspratama/go-patungan/entity"
+	"github.com/maspratama/go-patungan/user"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"log"
@@ -28,11 +28,11 @@ func ConncetToDB() {
 	DB = db
 	fmt.Println("Connection to db success!")
 
-	AutoMigrate(db)
+	//AutoMigrate(db)
 }
 func AutoMigrate(connection *gorm.DB) {
 	err := connection.Debug().AutoMigrate(
-		&entity.Users{},
+		&user.Users{},
 		//&entity.Transactions{},
 		//&entity.Campaigns{},
 		//&entity.CampaignImages{},
